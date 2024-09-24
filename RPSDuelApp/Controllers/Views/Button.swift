@@ -9,7 +9,7 @@ enum RPS: String {
     case scissors = "scissors"
 }
 
-class UserActionButton: UIButton {
+class Button: UIButton {
     
     private let rps: RPS
     

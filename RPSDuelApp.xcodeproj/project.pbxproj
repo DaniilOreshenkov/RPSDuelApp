@@ -13,13 +13,11 @@
 		1938E5AD2C7E48C100677A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1938E5AC2C7E48C100677A0E /* Assets.xcassets */; };
 		1938E5B02C7E48C100677A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1938E5AE2C7E48C100677A0E /* LaunchScreen.storyboard */; };
 		1938E5BF2C7ED9A200677A0E /* OpponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5BE2C7ED9A200677A0E /* OpponentView.swift */; };
-		1938E5C12C80E38700677A0E /* UserActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5C02C80E38600677A0E /* UserActionButton.swift */; };
-		1971FEB12C832B7E00A301DC /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEB02C832B7E00A301DC /* TimerView.swift */; };
-		1971FEB32C84387800A301DC /* CirculartoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEB22C84387800A301DC /* CirculartoaderView.swift */; };
+		1938E5C12C80E38700677A0E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5C02C80E38600677A0E /* Button.swift */; };
+		195D6F2E2CA33A0E008B89DA /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */; };
+		195D6F302CA33AA9008B89DA /* ArcLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */; };
+		195D6F322CA33AEE008B89DA /* CheckmarkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */; };
 		1971FEE52C8B893C00A301DC /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEE42C8B893C00A301DC /* DemoView.swift */; };
-		1971FEEF2C8B899500A301DC /* ArcsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEEE2C8B899500A301DC /* ArcsLayer.swift */; };
-		1971FEF12C8B899900A301DC /* CheckmarkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEF02C8B899900A301DC /* CheckmarkLayer.swift */; };
-		1971FEF32C8B899C00A301DC /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEF22C8B899C00A301DC /* CircleLayer.swift */; };
 		B8EB286D1B91600F0F8CCB25 /* Pods_RPSDuelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B1A54AA3604689ACED33CB /* Pods_RPSDuelApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,13 +30,11 @@
 		1938E5AF2C7E48C100677A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1938E5B12C7E48C100677A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1938E5BE2C7ED9A200677A0E /* OpponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentView.swift; sourceTree = "<group>"; };
-		1938E5C02C80E38600677A0E /* UserActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionButton.swift; sourceTree = "<group>"; };
-		1971FEB02C832B7E00A301DC /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		1971FEB22C84387800A301DC /* CirculartoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CirculartoaderView.swift; sourceTree = "<group>"; };
-		1971FEE42C8B893C00A301DC /* DemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoView.swift; path = RPSDuelApp/View/DemoView.swift; sourceTree = SOURCE_ROOT; };
-		1971FEEE2C8B899500A301DC /* ArcsLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArcsLayer.swift; path = ../../../BezierPathsAndShapeLayers/BezierPathsAndShapeLayers/View/CALayer/ArcsLayer.swift; sourceTree = "<group>"; };
-		1971FEF02C8B899900A301DC /* CheckmarkLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckmarkLayer.swift; path = ../../../BezierPathsAndShapeLayers/BezierPathsAndShapeLayers/View/CALayer/CheckmarkLayer.swift; sourceTree = "<group>"; };
-		1971FEF22C8B899C00A301DC /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleLayer.swift; path = ../../../BezierPathsAndShapeLayers/BezierPathsAndShapeLayers/View/CALayer/CircleLayer.swift; sourceTree = "<group>"; };
+		1938E5C02C80E38600677A0E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
+		195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcLayer.swift; sourceTree = "<group>"; };
+		195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkLayer.swift; sourceTree = "<group>"; };
+		1971FEE42C8B893C00A301DC /* DemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoView.swift; path = RPSDuelApp/Animate/DemoView.swift; sourceTree = SOURCE_ROOT; };
 		5741777973CD90AD97D722AB /* Pods-RPSDuelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPSDuelApp.debug.xcconfig"; path = "Target Support Files/Pods-RPSDuelApp/Pods-RPSDuelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E74CABCF0D1555AB1EC66D7E /* Pods-RPSDuelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPSDuelApp.release.xcconfig"; path = "Target Support Files/Pods-RPSDuelApp/Pods-RPSDuelApp.release.xcconfig"; sourceTree = "<group>"; };
 		F0B1A54AA3604689ACED33CB /* Pods_RPSDuelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPSDuelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,8 +73,7 @@
 		1938E5A22C7E48C000677A0E /* RPSDuelApp */ = {
 			isa = PBXGroup;
 			children = (
-				1971FEE22C8B892000A301DC /* Animate */,
-				1938E5BA2C7E4AF400677A0E /* Helpers */,
+				195D6F2C2CA339EC008B89DA /* Animate */,
 				1938E5B72C7E49FA00677A0E /* Application */,
 				1938E5B82C7E4A1200677A0E /* Controllers */,
 				1938E5B92C7E4A7400677A0E /* Resources */,
@@ -114,47 +109,22 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1938E5BA2C7E4AF400677A0E /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				1938E5BB2C7E4B0300677A0E /* Extention */,
-				1938E5BC2C7E4B0F00677A0E /* Storage */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		1938E5BB2C7E4B0300677A0E /* Extention */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extention;
-			sourceTree = "<group>";
-		};
-		1938E5BC2C7E4B0F00677A0E /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		1938E5BD2C7ED99100677A0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1938E5BE2C7ED9A200677A0E /* OpponentView.swift */,
-				1938E5C02C80E38600677A0E /* UserActionButton.swift */,
-				1971FEB02C832B7E00A301DC /* TimerView.swift */,
-				1971FEB22C84387800A301DC /* CirculartoaderView.swift */,
+				1938E5C02C80E38600677A0E /* Button.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1971FEE22C8B892000A301DC /* Animate */ = {
+		195D6F2C2CA339EC008B89DA /* Animate */ = {
 			isa = PBXGroup;
 			children = (
 				1971FEE42C8B893C00A301DC /* DemoView.swift */,
-				1971FEF22C8B899C00A301DC /* CircleLayer.swift */,
-				1971FEF02C8B899900A301DC /* CheckmarkLayer.swift */,
-				1971FEEE2C8B899500A301DC /* ArcsLayer.swift */,
+				195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */,
+				195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */,
+				195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */,
 			);
 			path = Animate;
 			sourceTree = "<group>";
@@ -290,15 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1971FEB12C832B7E00A301DC /* TimerView.swift in Sources */,
 				1971FEE52C8B893C00A301DC /* DemoView.swift in Sources */,
-				1971FEF32C8B899C00A301DC /* CircleLayer.swift in Sources */,
 				1938E5A82C7E48C000677A0E /* RPSDuelViewController.swift in Sources */,
+				195D6F302CA33AA9008B89DA /* ArcLayer.swift in Sources */,
+				195D6F322CA33AEE008B89DA /* CheckmarkLayer.swift in Sources */,
 				1938E5BF2C7ED9A200677A0E /* OpponentView.swift in Sources */,
-				1938E5C12C80E38700677A0E /* UserActionButton.swift in Sources */,
-				1971FEB32C84387800A301DC /* CirculartoaderView.swift in Sources */,
-				1971FEEF2C8B899500A301DC /* ArcsLayer.swift in Sources */,
-				1971FEF12C8B899900A301DC /* CheckmarkLayer.swift in Sources */,
+				1938E5C12C80E38700677A0E /* Button.swift in Sources */,
+				195D6F2E2CA33A0E008B89DA /* CircleLayer.swift in Sources */,
 				1938E5A42C7E48C000677A0E /* AppDelegate.swift in Sources */,
 				1938E5A62C7E48C000677A0E /* SceneDelegate.swift in Sources */,
 			);

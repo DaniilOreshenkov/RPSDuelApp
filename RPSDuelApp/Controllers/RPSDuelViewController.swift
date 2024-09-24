@@ -3,13 +3,11 @@ import SnapKit
 
 final class RPSDuelViewController: UIViewController {
     
-    //MARK: - DOTO: настроить констрейны, робот вид, настроить тему светлый и темный, сделать логика побед
-    
     // MARK: - Public Properties
     
     // MARK: - Private Properties
     private let robotOpponentView = OpponentView(opponent: .robot)
-    private let robotButton = UserActionButton(value: .rock)
+    private let robotButton = Button(value: .rock)
     
     private let vsLabel: UILabel = {
         let label = UILabel()
@@ -20,10 +18,9 @@ final class RPSDuelViewController: UIViewController {
         return label
     }()
     
-    private let timerView = TimerView()
-    private let rockButton = UserActionButton(value: .rock)
-    private let scissorsButton = UserActionButton(value: .scissors)
-    private let paperButton = UserActionButton(value: .paper)
+    private let rockButton = Button(value: .rock)
+    private let scissorsButton = Button(value: .scissors)
+    private let paperButton = Button(value: .paper)
     private let userOpponentView = OpponentView(opponent: .user)
 
     //MARK: - LifeCycle
@@ -47,13 +44,11 @@ final class RPSDuelViewController: UIViewController {
             robotOpponentView,
             robotButton,
             vsLabel,
-            timerView,
             rockButton,
             scissorsButton,
             paperButton,
             userOpponentView,
         ].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview($0)
         }
     }
@@ -72,22 +67,8 @@ final class RPSDuelViewController: UIViewController {
             make.width.equalToSuperview().multipliedBy(0.28)
         }
         
-        
-        timerView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(50)
-            make.bottom.equalTo(paperButton.snp.top).offset(-30)
-            make.height.equalToSuperview().multipliedBy(0.1)
-        }
-        
         vsLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalTo(timerView.snp.top).offset(-30)
-        }
-        
-        timerView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(50)
-            make.bottom.equalTo(paperButton.snp.top).offset(-30)
-            make.height.equalToSuperview().multipliedBy(0.1)
+            make.center.equalToSuperview()
         }
         
         userOpponentView.snp.makeConstraints { make in

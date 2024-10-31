@@ -13,11 +13,22 @@
 		1938E5AD2C7E48C100677A0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1938E5AC2C7E48C100677A0E /* Assets.xcassets */; };
 		1938E5B02C7E48C100677A0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1938E5AE2C7E48C100677A0E /* LaunchScreen.storyboard */; };
 		1938E5BF2C7ED9A200677A0E /* OpponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5BE2C7ED9A200677A0E /* OpponentView.swift */; };
-		1938E5C12C80E38700677A0E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5C02C80E38600677A0E /* Button.swift */; };
-		195D6F2E2CA33A0E008B89DA /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */; };
-		195D6F302CA33AA9008B89DA /* ArcLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */; };
-		195D6F322CA33AEE008B89DA /* CheckmarkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */; };
-		1971FEE52C8B893C00A301DC /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971FEE42C8B893C00A301DC /* DemoView.swift */; };
+		1938E5C12C80E38700677A0E /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1938E5C02C80E38600677A0E /* BaseButton.swift */; };
+		19651AEE2CADB3C20035E483 /* OpponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19651AED2CADB3C20035E483 /* OpponentViewModel.swift */; };
+		197468E52CB0664F004B9384 /* AlertPresent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468E42CB06644004B9384 /* AlertPresent.swift */; };
+		197468E72CB066B2004B9384 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468E62CB066A2004B9384 /* AlertModel.swift */; };
+		197468EA2CB06CFB004B9384 /* AlertPresentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468E92CB06CED004B9384 /* AlertPresentProtocol.swift */; };
+		197468EC2CB06D51004B9384 /* AlertPresentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468EB2CB06D45004B9384 /* AlertPresentDelegate.swift */; };
+		197468FE2CBAD475004B9384 /* OpponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468FD2CBAD46B004B9384 /* OpponentFactory.swift */; };
+		197469002CBBBEA4004B9384 /* OpponentFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197468FF2CBBBE95004B9384 /* OpponentFactoryProtocol.swift */; };
+		197469882CCA7E97004B9384 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197469802CCA7E97004B9384 /* CircleLayer.swift */; };
+		197469892CCA7E97004B9384 /* CGFloat + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197469822CCA7E97004B9384 /* CGFloat + ext.swift */; };
+		1974698A2CCA7E97004B9384 /* ArcsLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974697E2CCA7E97004B9384 /* ArcsLayer.swift */; };
+		1974698B2CCA7E97004B9384 /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197469862CCA7E97004B9384 /* IndicatorView.swift */; };
+		1974698C2CCA7E97004B9384 /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197469842CCA7E97004B9384 /* EmojiView.swift */; };
+		1983D5DA2CD275CC004BA7C1 /* LogicGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1983D5D92CD275C1004BA7C1 /* LogicGame.swift */; };
+		1983D5DC2CD28911004BA7C1 /* ImageView + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1983D5DB2CD28907004BA7C1 /* ImageView + ext.swift */; };
+		1983D5E12CD34663004BA7C1 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1983D5E02CD34660004BA7C1 /* Resources.swift */; };
 		B8EB286D1B91600F0F8CCB25 /* Pods_RPSDuelApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B1A54AA3604689ACED33CB /* Pods_RPSDuelApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,11 +41,22 @@
 		1938E5AF2C7E48C100677A0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1938E5B12C7E48C100677A0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1938E5BE2C7ED9A200677A0E /* OpponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentView.swift; sourceTree = "<group>"; };
-		1938E5C02C80E38600677A0E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
-		195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcLayer.swift; sourceTree = "<group>"; };
-		195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkLayer.swift; sourceTree = "<group>"; };
-		1971FEE42C8B893C00A301DC /* DemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoView.swift; path = RPSDuelApp/Animate/DemoView.swift; sourceTree = SOURCE_ROOT; };
+		1938E5C02C80E38600677A0E /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		19651AED2CADB3C20035E483 /* OpponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentViewModel.swift; sourceTree = "<group>"; };
+		197468E42CB06644004B9384 /* AlertPresent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresent.swift; sourceTree = "<group>"; };
+		197468E62CB066A2004B9384 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		197468E92CB06CED004B9384 /* AlertPresentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentProtocol.swift; sourceTree = "<group>"; };
+		197468EB2CB06D45004B9384 /* AlertPresentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentDelegate.swift; sourceTree = "<group>"; };
+		197468FD2CBAD46B004B9384 /* OpponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentFactory.swift; sourceTree = "<group>"; };
+		197468FF2CBBBE95004B9384 /* OpponentFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentFactoryProtocol.swift; sourceTree = "<group>"; };
+		1974697E2CCA7E97004B9384 /* ArcsLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcsLayer.swift; sourceTree = "<group>"; };
+		197469802CCA7E97004B9384 /* CircleLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
+		197469822CCA7E97004B9384 /* CGFloat + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + ext.swift"; sourceTree = "<group>"; };
+		197469842CCA7E97004B9384 /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
+		197469862CCA7E97004B9384 /* IndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		1983D5D92CD275C1004BA7C1 /* LogicGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicGame.swift; sourceTree = "<group>"; };
+		1983D5DB2CD28907004BA7C1 /* ImageView + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView + ext.swift"; sourceTree = "<group>"; };
+		1983D5E02CD34660004BA7C1 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		5741777973CD90AD97D722AB /* Pods-RPSDuelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPSDuelApp.debug.xcconfig"; path = "Target Support Files/Pods-RPSDuelApp/Pods-RPSDuelApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E74CABCF0D1555AB1EC66D7E /* Pods-RPSDuelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RPSDuelApp.release.xcconfig"; path = "Target Support Files/Pods-RPSDuelApp/Pods-RPSDuelApp.release.xcconfig"; sourceTree = "<group>"; };
 		F0B1A54AA3604689ACED33CB /* Pods_RPSDuelApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RPSDuelApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,8 +95,12 @@
 		1938E5A22C7E48C000677A0E /* RPSDuelApp */ = {
 			isa = PBXGroup;
 			children = (
-				195D6F2C2CA339EC008B89DA /* Animate */,
+				1983D5DF2CD3462C004BA7C1 /* Helpers */,
 				1938E5B72C7E49FA00677A0E /* Application */,
+				197468E82CB06CD9004B9384 /* AlertPresent */,
+				1983D5D82CD275B1004BA7C1 /* LogicGame */,
+				197468FC2CBAA960004B9384 /* OpponentFactory */,
+				19651AEC2CADB3B60035E483 /* Model */,
 				1938E5B82C7E4A1200677A0E /* Controllers */,
 				1938E5B92C7E4A7400677A0E /* Resources */,
 			);
@@ -112,21 +138,100 @@
 		1938E5BD2C7ED99100677A0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				197469872CCA7E97004B9384 /* Indicator */,
 				1938E5BE2C7ED9A200677A0E /* OpponentView.swift */,
-				1938E5C02C80E38600677A0E /* Button.swift */,
+				1938E5C02C80E38600677A0E /* BaseButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		195D6F2C2CA339EC008B89DA /* Animate */ = {
+		19651AEC2CADB3B60035E483 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1971FEE42C8B893C00A301DC /* DemoView.swift */,
-				195D6F2D2CA33A0E008B89DA /* CircleLayer.swift */,
-				195D6F2F2CA33AA9008B89DA /* ArcLayer.swift */,
-				195D6F312CA33AEE008B89DA /* CheckmarkLayer.swift */,
+				197468E62CB066A2004B9384 /* AlertModel.swift */,
+				19651AED2CADB3C20035E483 /* OpponentViewModel.swift */,
 			);
-			path = Animate;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		197468E82CB06CD9004B9384 /* AlertPresent */ = {
+			isa = PBXGroup;
+			children = (
+				197468EB2CB06D45004B9384 /* AlertPresentDelegate.swift */,
+				197468E92CB06CED004B9384 /* AlertPresentProtocol.swift */,
+				197468E42CB06644004B9384 /* AlertPresent.swift */,
+			);
+			path = AlertPresent;
+			sourceTree = "<group>";
+		};
+		197468FC2CBAA960004B9384 /* OpponentFactory */ = {
+			isa = PBXGroup;
+			children = (
+				197468FF2CBBBE95004B9384 /* OpponentFactoryProtocol.swift */,
+				197468FD2CBAD46B004B9384 /* OpponentFactory.swift */,
+			);
+			path = OpponentFactory;
+			sourceTree = "<group>";
+		};
+		1974697F2CCA7E97004B9384 /* Arcs */ = {
+			isa = PBXGroup;
+			children = (
+				1974697E2CCA7E97004B9384 /* ArcsLayer.swift */,
+			);
+			path = Arcs;
+			sourceTree = "<group>";
+		};
+		197469812CCA7E97004B9384 /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				197469802CCA7E97004B9384 /* CircleLayer.swift */,
+			);
+			path = Circle;
+			sourceTree = "<group>";
+		};
+		197469832CCA7E97004B9384 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				197469822CCA7E97004B9384 /* CGFloat + ext.swift */,
+				1983D5DB2CD28907004BA7C1 /* ImageView + ext.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		197469852CCA7E97004B9384 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				197469842CCA7E97004B9384 /* EmojiView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		197469872CCA7E97004B9384 /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				1974697F2CCA7E97004B9384 /* Arcs */,
+				197469812CCA7E97004B9384 /* Circle */,
+				197469852CCA7E97004B9384 /* ImageView */,
+				197469862CCA7E97004B9384 /* IndicatorView.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		1983D5D82CD275B1004BA7C1 /* LogicGame */ = {
+			isa = PBXGroup;
+			children = (
+				1983D5D92CD275C1004BA7C1 /* LogicGame.swift */,
+			);
+			path = LogicGame;
+			sourceTree = "<group>";
+		};
+		1983D5DF2CD3462C004BA7C1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1983D5E02CD34660004BA7C1 /* Resources.swift */,
+				197469832CCA7E97004B9384 /* Extention */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2CE84D1558E09678D96058E4 /* Frameworks */ = {
@@ -176,7 +281,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					1938E59F2C7E48C000677A0E = {
 						CreatedOnToolsVersion = 15.2;
@@ -260,14 +365,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1971FEE52C8B893C00A301DC /* DemoView.swift in Sources */,
+				197468EC2CB06D51004B9384 /* AlertPresentDelegate.swift in Sources */,
 				1938E5A82C7E48C000677A0E /* RPSDuelViewController.swift in Sources */,
-				195D6F302CA33AA9008B89DA /* ArcLayer.swift in Sources */,
-				195D6F322CA33AEE008B89DA /* CheckmarkLayer.swift in Sources */,
+				19651AEE2CADB3C20035E483 /* OpponentViewModel.swift in Sources */,
+				197469002CBBBEA4004B9384 /* OpponentFactoryProtocol.swift in Sources */,
 				1938E5BF2C7ED9A200677A0E /* OpponentView.swift in Sources */,
-				1938E5C12C80E38700677A0E /* Button.swift in Sources */,
-				195D6F2E2CA33A0E008B89DA /* CircleLayer.swift in Sources */,
+				197468E52CB0664F004B9384 /* AlertPresent.swift in Sources */,
+				1983D5DC2CD28911004BA7C1 /* ImageView + ext.swift in Sources */,
+				197469882CCA7E97004B9384 /* CircleLayer.swift in Sources */,
+				1983D5DA2CD275CC004BA7C1 /* LogicGame.swift in Sources */,
+				197469892CCA7E97004B9384 /* CGFloat + ext.swift in Sources */,
+				1974698A2CCA7E97004B9384 /* ArcsLayer.swift in Sources */,
+				1974698B2CCA7E97004B9384 /* IndicatorView.swift in Sources */,
+				1974698C2CCA7E97004B9384 /* EmojiView.swift in Sources */,
+				1983D5E12CD34663004BA7C1 /* Resources.swift in Sources */,
+				1938E5C12C80E38700677A0E /* BaseButton.swift in Sources */,
+				197468E72CB066B2004B9384 /* AlertModel.swift in Sources */,
+				197468FE2CBAD475004B9384 /* OpponentFactory.swift in Sources */,
 				1938E5A42C7E48C000677A0E /* AppDelegate.swift in Sources */,
+				197468EA2CB06CFB004B9384 /* AlertPresentProtocol.swift in Sources */,
 				1938E5A62C7E48C000677A0E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,14 +527,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5XS7C9U958;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RPSDuelApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,14 +556,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5XS7C9U958;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RPSDuelApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,15 +1,13 @@
 import UIKit
 import SnapKit
 
-//MARK: - переименовать класс, анимация сделать, марки 
-
 enum RPS: String {
     case rock = "rock"
     case paper = "paper"
     case scissors = "scissors"
 }
 
-class Button: UIButton {
+final class BaseButton: UIButton {
     
     private let rps: RPS
     

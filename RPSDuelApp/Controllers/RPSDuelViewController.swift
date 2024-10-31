@@ -3,117 +3,373 @@ import SnapKit
 
 final class RPSDuelViewController: UIViewController {
     
-    // MARK: - Public Properties
-    
-    // MARK: - Private Properties
-    private let robotOpponentView = OpponentView(opponent: .robot)
-    private let robotButton = Button(value: .rock)
-    
-    private let vsLabel: UILabel = {
+    // MARK: - Private Properties UI
+    private let roundLabel: UILabel = {
         let label = UILabel()
-        label.text = "VS"
-        label.textAlignment = .center
+        label.text = R.String.round
+        label.textAlignment = .left
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 45, weight: .black)
+        label.font = R.Fond.setFont(size: 23)
         return label
     }()
     
-    private let rockButton = Button(value: .rock)
-    private let scissorsButton = Button(value: .scissors)
-    private let paperButton = Button(value: .paper)
-    private let userOpponentView = OpponentView(opponent: .user)
+    private let counterLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.textColor = .label
+        label.font = R.Fond.setFont(size: 23)
+        return label
+    }()
+    
+    private let robotOpponentView = OpponentView()
+    
+    private let robotImageView: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(resource: .questionOutlined)
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
+    private let robotResultView: UIView = {
+        let view = UIView()
+        view.layer.masksToBounds = true
+        view.layer.borderWidth = 6
+        view.layer.cornerRadius = 25
+        view.layer.borderColor = UIColor(resource: .gray).cgColor
+        view.backgroundColor = UIColor(resource: .secondary)
+        return view
+    }()
+    
+    private let vsLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.String.vs
+        label.textAlignment = .center
+        label.textColor = .label
+        label.font = R.Fond.setFont(size: 45)
+        return label
+    }()
+    
+    private let gameStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .fill
+        view.spacing = 40
+        return view
+    }()
+    
+    private let counterStackView: UIStackView = {
+        let view = UIStackView()
+        view.spacing = 20
+        return view
+    }()
+    
+    private let robotStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .center
+        view.distribution = .fill
+        view.spacing = 20
+        return view
+    }()
+    
+    private let userStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 20
+        return view
+    }()
+    
+    private let buttonsStackView: UIStackView = {
+        let view = UIStackView()
+        view.distribution = .fillEqually
+        view.spacing = 5
+        return view
+    }()
+    
+    private let rockButton = BaseButton(value: .rock)
+    private let scissorsButton = BaseButton(value: .scissors)
+    private let paperButton = BaseButton(value: .paper)
+    
+    private let userOpponentView = OpponentView()
 
+    // MARK: - Private Properties
+    private let user =  OpponentFactory.shared.createOpponent(type: .user)
+    private let robot = OpponentFactory.shared.createOpponent(type: .robot)
+    private var rounds = 10
+    private var currentRoundIndex = 1
+    private var answer: ResultGame?
+    
+    private var alertPresent: AlertPresent?
+    private var logicGame = LogicGame.shared
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(userOpponentView)
+        userOpponentView.setOpponent(model: user)
+        robotOpponentView.setOpponent(model: robot)
         
-            
         setupViews()
         setupLayouts()
         setupAppearance()
-        setupTarget()
+        
+        setDelegate()
+        setTarget()
     }
     
-    // MARK: - Private Methods
+    // MARK: Setup UI
     
     private func setupViews() {
+        robotResultView.addSubview(robotImageView)
+        
         [
-            robotOpponentView,
-            robotButton,
-            vsLabel,
-            rockButton,
-            scissorsButton,
-            paperButton,
-            userOpponentView,
+            gameStackView
         ].forEach {
             view.addSubview($0)
+        }
+        
+        [
+            robotStackView,
+            userStackView
+        ].forEach {
+            gameStackView.addArrangedSubview($0)
+        }
+        
+        [
+            roundLabel,
+            counterLabel
+        ].forEach {
+            counterStackView.addArrangedSubview($0)
+        }
+        
+        [
+            counterStackView,
+            robotOpponentView,
+            robotResultView,
+            vsLabel
+        ].forEach {
+            robotStackView.addArrangedSubview($0)
+        }
+        
+        [
+            buttonsStackView,
+            userOpponentView
+        ].forEach {
+            userStackView.addArrangedSubview($0)
+        }
+        
+        [
+            rockButton,
+            scissorsButton,
+            paperButton
+        ].forEach {
+            buttonsStackView.addArrangedSubview($0)
         }
     }
     
     private func setupLayouts() {
+        gameStackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(0.85)
+            make.width.equalToSuperview().multipliedBy(0.9)
+        }
+        
+        counterStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+        }
+        
+        robotStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+        }
+        
+        robotResultView.snp.makeConstraints { make in
+            make.width.equalTo(robotResultView.snp.height)
+            make.height.equalToSuperview().multipliedBy(0.3)
+        }
         
         robotOpponentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.horizontalEdges.equalToSuperview().inset(16)
+            make.horizontalEdges.equalToSuperview()
+            make.height.equalTo(gameStackView.snp.height).multipliedBy(0.10)
         }
         
-        robotButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(vsLabel.snp.top).offset(-30)
-            make.height.equalToSuperview().multipliedBy(0.141)
-            make.width.equalToSuperview().multipliedBy(0.28)
-        }
-        
-        vsLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        userStackView.snp.makeConstraints { make in
+            make.height.equalToSuperview().multipliedBy(0.29)
         }
         
         userOpponentView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-70)
-            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(gameStackView.snp.height).multipliedBy(0.1)
         }
         
-        scissorsButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.width.equalToSuperview().multipliedBy(0.28)
-            make.height.equalToSuperview().multipliedBy(0.141)
-            make.bottom.equalTo(userOpponentView.snp.top).offset(-20)
+        robotImageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
-        
-        paperButton.snp.makeConstraints { make in
-            make.leading.equalTo(scissorsButton.snp.trailing).offset(16)
-            make.width.equalToSuperview().multipliedBy(0.28)
-            make.height.equalToSuperview().multipliedBy(0.141)
-            make.bottom.equalTo(userOpponentView.snp.top).offset(-20)
-        }
-        
-        rockButton.snp.makeConstraints { make in
-            make.leading.equalTo(paperButton.snp.trailing).offset(16)
-            make.trailing.equalToSuperview().offset(-16)
-            make.width.equalToSuperview().multipliedBy(0.28)
-            make.height.equalToSuperview().multipliedBy(0.141)
-            make.bottom.equalTo(userOpponentView.snp.top).offset(-20)
+    }
+    
+    private func setupLayerImageView(basic: Bool) {
+        if basic == true {
+            robotImageView.snp.removeConstraints()
+            robotImageView.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
+        } else {
+            robotImageView.snp.removeConstraints()
+            robotImageView.snp.makeConstraints { make in
+                make.bottom.equalToSuperview()
+                make.horizontalEdges.equalToSuperview()
+                make.top.equalToSuperview().offset(16)
+            }
         }
     }
     
     private func setupAppearance() {
         view.backgroundColor = UIColor(resource: .background)
+        counterLabel.text = "\(currentRoundIndex)/\(rounds)"
     }
     
-    private func setupTarget() {
+    private func setDelegate() {
+        let alertPresent = AlertPresent()
+        alertPresent.delegate = self
+        self.alertPresent = alertPresent
+    }
+    
+    private func setTarget() {
         paperButton.addTarget(self, action: #selector(paperDidTap), for: .touchUpInside)
-        scissorsButton.addTarget(self, action: #selector(paperDidTap), for: .touchUpInside)
-        rockButton.addTarget(self, action: #selector(paperDidTap), for: .touchUpInside)
+        scissorsButton.addTarget(self, action: #selector(scissorsDidTap), for: .touchUpInside)
+        rockButton.addTarget(self, action: #selector(rockDidTap), for: .touchUpInside)
     }
     
+    // MARK: - Private Methods
+    private func backToBasics() {
+        robotImageView.image = UIImage(resource: .questionOutlined)
+        counterLabel.text = "\(currentRoundIndex)/\(rounds)"
+        userOpponentView.performAnAnimation(value: true)
+        robotOpponentView.performAnAnimation(value: true)
+        [
+            paperButton,
+            scissorsButton,
+            rockButton,
+        ].forEach {
+            $0.backgroundColor = UIColor(resource: .secondary)
+            $0.isEnabled = true
+        }
+    }
+    
+    private func showNextAlert(completion: (() -> Void)? = nil) {
+        guard let answer = answer else { return }
+        let alertModel = AlertModel(
+            title: "Результат раунда:",
+            text: "\(answer.rawValue)",
+            buttonText: "Ok") { [weak self] _ in
+                guard let self = self else { return }
+                backToBasics()
+                setupLayerImageView(basic: true)
+                completion?()
+            }
+        alertPresent?.showAlert(model: alertModel)
+    }
+    
+    private func showFinishResultAlert() {
+        let text = "Результат игры:\(logicGame.showEndResult()) \n Количество \n Побед: \(logicGame.victory) \n Поражений: \(logicGame.defeat)\n Ничьей: \(logicGame.draw)"
+        
+        let alertModel = AlertModel(
+            title: "Игра окончена",
+            text: text,
+            buttonText: "Сыграть ещё раз") { [weak self] _ in
+                guard let self = self else { return }
+                currentRoundIndex = 1
+                backToBasics()
+                
+                logicGame.resetResult()
+                robotOpponentView.reset()
+                userOpponentView.reset()
+            }
+        
+        alertPresent?.showAlert(model: alertModel)
+    }
+    
+    private func willGetResult() {
+        self.paperButton.isEnabled = false
+        self.rockButton.isEnabled = false
+        self.scissorsButton.isEnabled = false
+        
+        showNextRoundOrResults()
+    }
+    
+    private func determineWinner(userPlayer: GameOption) {
+        let resultRandom = logicGame.randomGameOption()
+        answer = logicGame.determineWinner(playerOption: userPlayer, computerOption: resultRandom)
+        
+        robotImageView.image = UIImage(named: "\(resultRandom)")
+        setupLayerImageView(basic: false)
+        robotImageView.startAnimate()
+        
+        switch answer {
+        case .victory:
+            userOpponentView.countingWin()
+            robotOpponentView.setIndicatorView(color: UIColor.systemPink, image: UIImage.defeat)
+            userOpponentView.setIndicatorView(color: UIColor.systemGreen, image: UIImage.victory)
+        case .defeat:
+            robotOpponentView.countingWin()
+            robotOpponentView.setIndicatorView(color: UIColor.systemGreen, image: UIImage.victory)
+            userOpponentView.setIndicatorView(color: UIColor.systemPink, image: UIImage.defeat)
+        case .draw:
+            robotOpponentView.setIndicatorView(color: UIColor.purple, image: UIImage.draw)
+            userOpponentView.setIndicatorView(color: UIColor.purple, image: UIImage.draw)
+        case nil:
+            return
+        }
+    }
+    
+    private func showNextRoundOrResults() {
+        if currentRoundIndex == rounds {
+            userOpponentView.performAnAnimation(value: false)
+            robotOpponentView.performAnAnimation(value: false)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.showNextAlert {
+                    self.showFinishResultAlert()
+                }
+            }
+        } else {
+            currentRoundIndex += 1
+            userOpponentView.performAnAnimation(value: false)
+            robotOpponentView.performAnAnimation(value: false)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                self.showNextAlert()
+            }
+        }
+    }
+    
+    // MARK: - @objc
     @objc private func paperDidTap() {
-        userOpponentView.countingWin()
-//        userOpponentView.
+        paperButton.backgroundColor = UIColor.purple
+        determineWinner(userPlayer: .paper)
+        willGetResult()
+    }
+    
+    @objc private func rockDidTap() {
+        rockButton.backgroundColor = UIColor.purple
+        determineWinner(userPlayer: .rock)
+        willGetResult()
+    }
+    
+    @objc private func scissorsDidTap() {
+        scissorsButton.backgroundColor = UIColor.purple
+        determineWinner(userPlayer: .scissors)
+        willGetResult()
     }
 }
+
+// MARK: - AlertPresentDelegate
+extension RPSDuelViewController: AlertPresentDelegate {
+    func didShowAlert(view: UIViewController) {
+        present(view, animated: true)
+    }
+}
+
 #Preview(traits: .portrait) {
     RPSDuelViewController()
 }

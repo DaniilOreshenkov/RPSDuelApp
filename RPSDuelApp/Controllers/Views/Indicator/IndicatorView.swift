@@ -4,6 +4,7 @@ class IndicatorView: UIView {
     private let arcsLayer = ArcsLayers()
     private let circleLayer = CircleLayers()
     private let emojiView = EmojiView()
+    private var timer: Timer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +38,12 @@ class IndicatorView: UIView {
     func stopAnimate() {
         arcsLayer.stopAnimate()
         circleLayer.startAnimate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.emojiView.isHidden = false
-            self.emojiView.startAnimate()
-        }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { [weak self] _ in
+            guard let self = self else { return  }
+            emojiView.isHidden = false
+            emojiView.startAnimate()
+        })
     }
     
     private func setupViews() {

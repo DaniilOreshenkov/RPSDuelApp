@@ -92,15 +92,16 @@ final class RPSDuelViewController: UIViewController {
     private let paperButton = BaseButton(value: .paper)
     
     private let userOpponentView = OpponentView()
-
+    
     // MARK: - Private Properties
     private let user =  OpponentFactory.shared.createOpponent(type: .user)
     private let robot = OpponentFactory.shared.createOpponent(type: .robot)
     private var rounds = 10
     private var currentRoundIndex = 1
     private var answer: R.ResultGame?
+    private var timer: Timer?
     
-    private var alertPresent: AlertPresent?
+    private var alertPresent = AlertPresent()
     private var logicGame = GameRepository.shared
     
     //MARK: - LifeCycle
@@ -229,9 +230,7 @@ final class RPSDuelViewController: UIViewController {
     }
     
     private func setDelegate() {
-        let alertPresent = AlertPresent()
         alertPresent.delegate = self
-        self.alertPresent = alertPresent
     }
     
     private func setTarget() {
@@ -267,16 +266,16 @@ final class RPSDuelViewController: UIViewController {
                 setupLayerImageView(basic: true)
                 completion?()
             }
-        alertPresent?.showAlert(model: alertModel)
+        alertPresent.showAlert(model: alertModel)
     }
     
-    private func showFinishResultAlert() {        
+    private func showFinishResultAlert() {
         let textMessage = String(
             format: R.AlertFinish.message.value,
-                                 logicGame.showEndResult(),
-                                 logicGame.victoryCount,
-                                 logicGame.defeatCount,
-                                 logicGame.drawCount
+            logicGame.showEndResult(),
+            logicGame.victoryCount,
+            logicGame.defeatCount,
+            logicGame.drawCount
         )
         
         let alertModel = AlertModel(
@@ -292,7 +291,7 @@ final class RPSDuelViewController: UIViewController {
                 userOpponentView.reset()
             }
         
-        alertPresent?.showAlert(model: alertModel)
+        alertPresent.showAlert(model: alertModel)
     }
     
     private func willGetResult() {
@@ -333,19 +332,21 @@ final class RPSDuelViewController: UIViewController {
             userOpponentView.performAnAnimation(value: false)
             robotOpponentView.performAnAnimation(value: false)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                self.showNextAlert {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { [weak self] _ in
+                guard let self = self else { return }
+                showNextAlert {
                     self.showFinishResultAlert()
                 }
-            }
+            })
         } else {
             currentRoundIndex += 1
             userOpponentView.performAnAnimation(value: false)
             robotOpponentView.performAnAnimation(value: false)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                self.showNextAlert()
-            }
+            timer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: { [weak self] _ in
+                guard let self = self else { return }
+                showNextAlert()
+            })
         }
     }
     

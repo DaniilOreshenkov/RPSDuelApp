@@ -13,12 +13,12 @@ final class OpponentFactory: OpponentFactoryProtocol {
     private let user = OpponentViewModel(
         counter: 0,
         image: UIImage(resource: .avatar),
-        name: R.String.userName
+        name: R.Localisable.userName.value
     )
     private let robot = OpponentViewModel(
         counter: 0,
         image: UIImage(resource: .robot),
-        name: R.String.robotName
+        name: R.Localisable.robotName.value
     )
     
     func createOpponent(type: OpponentType) -> OpponentViewModel {

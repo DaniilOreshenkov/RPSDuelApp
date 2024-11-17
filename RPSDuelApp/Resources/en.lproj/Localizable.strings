@@ -1,0 +1,16 @@
+// UI
+"round" = "Round:";
+"vs" = "VS";
+"userName" = "User";
+"robotName" = "Robot";
+// Result
+"victory" = "You win!";
+"defeat" = "Computer win!";
+"draw" = "Draw!";
+// AlertRound
+"titleRound" = "The result of the round:";
+"buttonTextRound" = "Ok";
+// AlertFinish
+"titleFinish" = "The game is over";
+"buttonTextFinish" = "Play it again";
+"messageFinish" = "Game Result: %@\n Number of \n Wins: %d \n Losses: %d \n Draws: %d";

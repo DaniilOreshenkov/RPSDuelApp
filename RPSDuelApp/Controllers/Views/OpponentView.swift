@@ -5,7 +5,7 @@ final class OpponentView: UIView {
     
     private let counterLabel: UILabel = {
         let label = UILabel()
-        label.font = R.Fond.setFont(size: 23)
+        label.font = R.RPSFond.setFont(size: 23)
         return label
     }()
     

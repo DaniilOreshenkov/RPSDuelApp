@@ -1,0 +1,16 @@
+// UI
+"round" = "Раунд:";
+"vs" = "VS";
+"userName" = "Игрок";
+"robotName" = "Робот";
+// Result
+"victory" = "Вы победили!";
+"defeat" = "Компьютер победили!";
+"draw" = "Ничья!";
+// AlertRound
+"titleRound" = "Результат раунда:";
+"buttonTextRound" = "Ок";
+// AlertFinish
+"titleFinish" = "Игра окончена";
+"buttonTextFinish" = "Сыграть ещё раз";
+"messageFinish" = "Результат игры: %@ \n Количество \n Побед: %d \n Поражений: %d \n Ничьей: %d";

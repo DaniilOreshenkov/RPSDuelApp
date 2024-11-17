@@ -6,10 +6,10 @@ final class RPSDuelViewController: UIViewController {
     // MARK: - Private Properties UI
     private let roundLabel: UILabel = {
         let label = UILabel()
-        label.text = R.String.round
+        label.text = R.Localisable.round.value
         label.textAlignment = .left
         label.textColor = .label
-        label.font = R.Fond.setFont(size: 23)
+        label.font = R.RPSFond.setFont(size: 23)
         return label
     }()
     
@@ -17,7 +17,7 @@ final class RPSDuelViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .right
         label.textColor = .label
-        label.font = R.Fond.setFont(size: 23)
+        label.font = R.RPSFond.setFont(size: 23)
         return label
     }()
     
@@ -42,10 +42,10 @@ final class RPSDuelViewController: UIViewController {
     
     private let vsLabel: UILabel = {
         let label = UILabel()
-        label.text = R.String.vs
+        label.text = R.Localisable.vs.value
         label.textAlignment = .center
         label.textColor = .label
-        label.font = R.Fond.setFont(size: 45)
+        label.font = R.RPSFond.setFont(size: 45)
         return label
     }()
     
@@ -98,10 +98,10 @@ final class RPSDuelViewController: UIViewController {
     private let robot = OpponentFactory.shared.createOpponent(type: .robot)
     private var rounds = 10
     private var currentRoundIndex = 1
-    private var answer: ResultGame?
+    private var answer: R.ResultGame?
     
     private var alertPresent: AlertPresent?
-    private var logicGame = LogicGame.shared
+    private var logicGame = GameRepository.shared
     
     //MARK: - LifeCycle
     
@@ -259,9 +259,9 @@ final class RPSDuelViewController: UIViewController {
     private func showNextAlert(completion: (() -> Void)? = nil) {
         guard let answer = answer else { return }
         let alertModel = AlertModel(
-            title: "Результат раунда:",
-            text: "\(answer.rawValue)",
-            buttonText: "Ok") { [weak self] _ in
+            title: R.AlertRound.title.value,
+            text: answer.value,
+            buttonText: R.AlertRound.button.value) { [weak self] _ in
                 guard let self = self else { return }
                 backToBasics()
                 setupLayerImageView(basic: true)
@@ -270,13 +270,19 @@ final class RPSDuelViewController: UIViewController {
         alertPresent?.showAlert(model: alertModel)
     }
     
-    private func showFinishResultAlert() {
-        let text = "Результат игры:\(logicGame.showEndResult()) \n Количество \n Побед: \(logicGame.victory) \n Поражений: \(logicGame.defeat)\n Ничьей: \(logicGame.draw)"
+    private func showFinishResultAlert() {        
+        let textMessage = String(
+            format: R.AlertFinish.message.value,
+                                 logicGame.showEndResult(),
+                                 logicGame.victoryCount,
+                                 logicGame.defeatCount,
+                                 logicGame.drawCount
+        )
         
         let alertModel = AlertModel(
-            title: "Игра окончена",
-            text: text,
-            buttonText: "Сыграть ещё раз") { [weak self] _ in
+            title: R.AlertFinish.title.value,
+            text: textMessage,
+            buttonText: R.AlertFinish.button.value) { [weak self] _ in
                 guard let self = self else { return }
                 currentRoundIndex = 1
                 backToBasics()
@@ -365,8 +371,8 @@ final class RPSDuelViewController: UIViewController {
 
 // MARK: - AlertPresentDelegate
 extension RPSDuelViewController: AlertPresentDelegate {
-    func didShowAlert(view: UIViewController) {
-        present(view, animated: true)
+    func didShow(_: AlertPresent, alert: UIViewController) {
+        present(alert, animated: true)
     }
 }
 

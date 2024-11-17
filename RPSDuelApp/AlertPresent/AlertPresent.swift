@@ -12,6 +12,6 @@ class AlertPresent: AlertPresentProtocol {
         )
         let button = UIAlertAction(title: model.buttonText, style: .default, handler: model.completion)
         alert.addAction(button)
-        delegate?.didShowAlert(view: alert)
+        delegate?.didShow(self, alert: alert)
     }
 }
